@@ -3,7 +3,7 @@ parser = argparse.ArgumentParser();
 parser.add_argument("-ip",nargs="+",help="xxx.py -ip 192.168.1.* 20 or -ip 192.168.*.* 20");
 args = parser.parse_args()
 pat = os.path.dirname(os.path.abspath(__file__)).replace("\\","/");
-
+n,y = 0,255
 
 def get_os(): 
 
@@ -33,9 +33,15 @@ def IsOpen(ip_str):
 
 try:
 	ip,t =  args.ip[0],int(args.ip[1]);
-	if t > 100:
-		print 't no > 100';
-		exit(0);
+	ip_l = ip.split('.');
+	if len(ip_l) < 1:
+		print 'IP error!';
+		exit()
+	else:
+		for int_i in ip_l:
+			if int_i != "*":
+				if not int_i.isdigit() or len(int_i) >= 4 or int_i>255 and int_i<0:
+					print "ip error!";exit();
 except:
 	print 'error:list index out of range;\r\nhelp: xx.py -ip 192.168.1.* 20'
 	exit();
@@ -44,8 +50,11 @@ q = Queue.Queue(t);
 
 
 
-ip_x_1 = ip.find("*");
-for x1 in xrange(0,255):
+if ip_l[0] == "172" and ip_l[1] == "*":
+	n,y=16,32
+elif ip_l[0] == "192" and ip_l[1] == "*":
+	n,y=168,169
+for x1 in xrange(n,y):
 	ip1 = ip.replace("*",str(x1),1);
 	ip1_count = ip.count('*');
 	
@@ -81,5 +90,3 @@ for x1 in xrange(0,255):
 								break;
 							else:
 								time.sleep(0.5)
-
-
