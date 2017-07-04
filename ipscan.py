@@ -69,7 +69,7 @@ for x1 in xrange(0,255):
 						break;
 					else:
 						print 'manle'
-						time.sleep(time.sleep(0.5))
+						time.sleep(0.5)
 			if ip2_count >= 3:
 				for x3 in xrange(0,255):
 					ip3 = ip2.replace("*",str(x2),1);
@@ -82,6 +82,6 @@ for x1 in xrange(0,255):
 								break;
 							else:
 								print 'manle'
-								time.sleep(time.sleep(0.5))
+								time.sleep(0.5)
 
 
