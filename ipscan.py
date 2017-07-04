@@ -45,7 +45,7 @@ q = Queue.Queue(t);
 
 
 ip_x_1 = ip.find("*");
-for x1 in xrange(1,255):
+for x1 in xrange(0,255):
 	ip1 = ip.replace("*",str(x1),1);
 	ip1_count = ip.count('*');
 	
@@ -58,7 +58,7 @@ for x1 in xrange(1,255):
 			else:
 				time.sleep(0.5)
 	if ip1_count >= 2:
-		for x2 in xrange(1,255):
+		for x2 in xrange(0,255):
 			ip2 = ip1.replace("*",str(x2),1);
 			ip2_count = ip.count('*');
 			if ip2_count == 2:
@@ -71,7 +71,7 @@ for x1 in xrange(1,255):
 						print 'manle'
 						time.sleep(1)
 			if ip2_count >= 3:
-				for x3 in xrange(1,255):
+				for x3 in xrange(0,255):
 					ip3 = ip2.replace("*",str(x2),1);
 					ip3_count = ip.count('*');
 					if ip3_count == 2:
