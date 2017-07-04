@@ -2,7 +2,7 @@ import os,socket,Queue,threading,argparse,time,sys,os,platform
 parser = argparse.ArgumentParser();
 parser.add_argument("-ip",nargs="+",help="xxx.py -ip 192.168.1.* 20 or -ip 192.168.*.* 20");
 args = parser.parse_args()
-
+pat = os.path.dirname(os.path.abspath(__file__)).replace("\\","/");
 
 
 def get_os(): 
@@ -27,7 +27,7 @@ def IsOpen(ip_str):
 	q.get()
 	if flag: 
 		print "ip: %s is ok ***"%ip_str 
-		f=open('ip.txt','a')
+		f=open(pat+'/ip.txt','a')
 		f.write("%s -----> is open \r\n" % ip_str)
 		f.close()
 
@@ -69,7 +69,7 @@ for x1 in xrange(0,255):
 						break;
 					else:
 						print 'manle'
-						time.sleep(1)
+						time.sleep(time.sleep(0.5))
 			if ip2_count >= 3:
 				for x3 in xrange(0,255):
 					ip3 = ip2.replace("*",str(x2),1);
@@ -82,6 +82,6 @@ for x1 in xrange(0,255):
 								break;
 							else:
 								print 'manle'
-								time.sleep(1)
+								time.sleep(time.sleep(0.5))
 
 
