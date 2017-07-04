@@ -34,8 +34,8 @@ def IsOpen(ip_str):
 try:
 	ip,t =  args.ip[0],int(args.ip[1]);
 	ip_l = ip.split('.');
-	if len(ip_l) < 1:
-		print 'IP error!';
+	if len(ip_l) < 1 or t > 20:
+		print 'IP error! or t > 20';
 		exit()
 	else:
 		for int_i in ip_l:
