@@ -68,7 +68,6 @@ for x1 in xrange(0,255):
 						q.put(1)
 						break;
 					else:
-						print 'manle'
 						time.sleep(0.5)
 			if ip2_count >= 3:
 				for x3 in xrange(0,255):
@@ -81,7 +80,6 @@ for x1 in xrange(0,255):
 								q.put(1)
 								break;
 							else:
-								print 'manle'
 								time.sleep(0.5)
 
 
